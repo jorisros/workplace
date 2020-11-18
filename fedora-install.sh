@@ -1,6 +1,19 @@
-# Create new key for user
-runuser -l joris -c ssh-keygen
+# Check for run only as sudo
+if [ "$EUID" -ne 0 ]
+    then echo "Please use `sudo` before run"
+    exit
+fi
 
+# Check if user joris exists
+if id "joriis" &>/dev/null; then
+    echo 'user joris found'
+else
+    echo "User joris not found"
+    exit 1
+fi
+
+# Create new key for user:
+runuser -l joris -c ssh-keygen
 
 # Install docker
 grubby --update-kernel=ALL --args="systemd.unified_cgroup_hierarchy=0"
