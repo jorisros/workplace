@@ -45,6 +45,9 @@ runuser -l joris -c git config --global user.email "joris.ros@gmail.com"
 dnf copr enable atim/lazygit -y
 dnf install lazygit
 
+#Lower security settings for compatibel with Bitbucket
+sudo update-crypto-policies --set LEGACY
+
 #Echo key
 echo "Install following key in github and bitbucket"
 cat /home/joris/.ssh/id_rsa.pub
