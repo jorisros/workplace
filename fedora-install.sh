@@ -31,7 +31,7 @@ sudo ln -s /var/lib/snapd/snap /snap
 
 # Install phpstorm
 snap install phpstorm --classic
-runuser -l joris -c /home/joris/phpstorm.sh
+#runuser -l joris -c /home/joris/phpstorm.sh
 
 # Install snap
 snap install postman
@@ -40,5 +40,11 @@ snap install postman
 dnf install git
 runuser -l joris -c git config --global user.name "Joris Ros"
 runuser -l joris -c git config --global user.email "joris.ros@gmail.com"
+
+# Install lazygit
+dnf copr enable atim/lazygit -y
+dnf install lazygit
+
+#Echo key
 echo "Install following key in github and bitbucket"
 cat /home/joris/.ssh/id_rsa.pub
