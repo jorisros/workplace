@@ -5,7 +5,7 @@ if [ "$EUID" -ne 0 ]
 fi
 
 # Check if user joris exists
-if id "joriis" &>/dev/null; then
+if id "joris" &>/dev/null; then
     echo 'user joris found'
 else
     echo "User joris not found"
